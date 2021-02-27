@@ -1,0 +1,9 @@
+copy this file:
+
+libportaudio64bit.dll
+
+from here:
+
+installation_path\Python37\Lib\site-packages\_sounddevice_data\portaudio-binaries
+
+NOTE: you also need to install "playsound" in addition to "sounddevice" (see requirements.txt)

@@ -1,0 +1,117 @@
+2021.02.27, 13:14hs:
+####################
+
+# make generation of .exe work:
+#  - run in USB-Stick
+#  - run 2 instances in same PC
+#  - reduce size of .exe by including things which are really needed.
+#    e.g. don't use OpenGL
+#  - get rid of workarounds in backups folder...needed for generation of .exe file
+#    there is for sure a better was to solve these problems
+#  - APPLY workaround in sounddevice.py only when generating .EXE then put original back...otherwise other programs will have problems..
+#    Check the other workarounds also...
+
+# TX-during-initialization:
+# IMAGE of transmitter
+# in voice-band (analog signal)
+# coding image pixel-infos in "8-bit-gray scala" and "without jumps": 8 different raster-options, e.g. top-left -> right-bottom, top-right -> left-bottom, etc.
+# pic can be e.g. 120x120 pixels in size...approx. 16.000 samples, need 8 seconds for complete transmission.
+
+# ENCRYPTION Options:
+# 1) encrypt complete telegram?...or more fields?
+# 2) encryption on/off
+
+# nicer Icon-Transitions e.g. during startup (sometimes we see gray=disconnected while exchanging key)
+
+# if the chat-message is only an emoji then increase its size. When combined with text keep normal size.
+   
+# BUG:
+# lblRxTime = 0.0 all the time because time in callback is always zero...bug in HW according to:
+# https://stackoverflow.com/questions/52283147/python-sounddevice-callback-time-inputbufferadctime-returns-0
+
+# remove commented receive_on_ref, transmit_on_ref, etc.
+# at high-level we do communicate half-duplex but at a lower level it may be that we are 
+# transmitting while receiving. At low level we have full-duplex communication with 2 different processes for TX and for RX.
+
+# chat_state in mainWindow.py
+# implement a nice state machine, triggered by events (internal button or timeouts or external events)
+
+# distort and undistortFunction()
+# implement correctly, but may need exact synchronization.
+
+# avoid dynamic memory allocation (pre-allocate fix memory instead)
+# see e.g. TODOs in audioReceiver.getStartSamplePosition()
+
+# general: check all code, if need to initialize class variables inside __init__()
+# in order to assure consistency, e.g. clean re-start of things after audio-interface restart, without having to restart the application.
+
+# set volume automatically e.g. to middle (50%) - see FEATURES: Decode-Quality-Monitor/ing
+
+# Telegram: I_AM_WRITING_NOW, to show ... that the other part is currently writing
+
+# implement Life-Signs (cfg) -> use also to update status on left-right-corner
+
+# add range-check on parameters (when reading from config.ini or when changing them in GUI)
+
+# use prefixes on protected varialbes with _xxx and private variables with __xx
+
+# implement channel-delay autodetection ==> adapt retry-timeout dinamically...
+ 
+# - multi-channel but still point-to-point
+# - multi-channel group-chat
+# - detect CODE_CHANNEL automatically
+
+# adjust TELEGRAM_MAX_LEN_BYTES and AUDIO_CHUNK_BYTES_LEN (and derived vals)
+# depending on error rate of channel AUTOMATICALLY 
+
+# in soundDeviceManager.py
+# make sure all interfaces use the same sample rate?
+
+# input from audio file (.mp3 or .wav)
+# output to audio file (.mp3 or .wav)
+
+#	- Decode-Quality-Monitor(DQM): background process which monitors the quality (amplitude, SNR, Signal-form,..) and adjusts:
+#		- input-level automatically (use average value and make slow changes)
+#		- if input-level too low or too much noise: send Telegram-Request to increase output-volume
+
+# replace audioChunkRef[] with queue?
+# some day, instead of a circular buffer, try instead using a queue as in audioReceiver, it may work better or reduce the complexity of the code.
+# But, if we leave buffer, then we can try to reduce shape:  np.array([[0.0]]...) -> np.array([0.0]...)  ???
+
+#########################################
+# "un-extreme" code...e.g.:
+# - big refactoring or even throw away and write complete code again?
+# - improve architecture with new classes and modules
+# - use better interfaces to decouple classes
+# - general clean-up
+# - etc.
+#########################################
+
+# support also Audio Interfaces with sampling rates / frequencies different to the one configured...and show a warning message...
+# need to re-sample? or process everything with new sampling rate? WARNING: lots of things may need to be re-calculated with new frequency...
+# set SAMPLING_FREQUENCY according to audio interfaces used?
+
+# improve FILTERs, still hear some codes while talking...even if they have low volume
+# need sharper borders and more attenuation (but be aware that such sharp-filters create "ringing" effects..)
+# TEST AGAIN detection of bits using "zero-crossing" transitions and if faster/robuster than FFT re-activate it.
+# NOTE: without a good RX-Bandpass-Filter it is NOT possible to use "zero-crossing" as bit-detection method.
+# ALTERNATIVE to BPF for coding-range COULD BE:
+# FFT_1 = FFT - fcAmplitude/2 --> inverse_FFT_1 to get clean sig
+# e.g. NOT only filter VOICE but also remove INBOUND channel-noise in coding-range...
+
+# compress files or long-texts before transmission (decompress on reception)
+
+# *** PERFORMANCE IMPROVEMENTS ***
+# 1) copy settings to "local variables" in init/start for faster access AND for consistency of related variables and FIXING values during session
+# 2) see TODOs
+
+# don't allow SAME audio device be selected twice?
+
+# in settings -> audio devices
+# refresh / update button to see new / removed audio devices
+
+
+
+
+
+
