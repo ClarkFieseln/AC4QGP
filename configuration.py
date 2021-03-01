@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # Version format: MAJOR.MINOR.BUGFIX
-VERSION = "1.0.0"
+# 2021.03.01: updated requirements.txt due to vulnerability in cryptography lib.
+VERSION = "1.0.1"
 VERSION_TOOL_TIP = "First release version containing basic set of features for demonstration purposes.\n\
                     This PoC (Proof of Concept) still needs to be \"refactored\" and \"un-extremed\"."
                     
