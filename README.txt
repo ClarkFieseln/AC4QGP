@@ -12,17 +12,15 @@ on Linux you can run Python scripts directly.
 
 1) install eric6 IDE and all required dependencies (like PyQt5), check the file requirements.txt
     (configure your environment as required: pip install -r requirements.txt)
-    (pipreqs may not catch all dependencies, thus you may need to do also: pip install playsound
+    (pipreqs may not catch all dependencies, thus you may need to do also: 
+    pip install playsound
+    pip install sounddevice
     sudo apt-get install python3-tk, then test: python3 -c "import tkinter")
     
 2) configure config.ini as required
     IMPORTANT: Note that the default values are just an example and need to be adapted to your specific conditions.
  
-3) in folder /backups you find some files you need to replace in the corresponding installation paths:
-    installation_path\Python37\Lib\site-packages\pyshark\capture\capture.py
-    installation_path\Python37\Lib\site-packages\gmplot\gmplot.py # the interface has been extended!
-    installation_path\Python37\Lib\site-packages\pyshark\tshark\tshark.py
-    # installation_path/Python37/Lib/site-packages/PyQt5/ __init__.py # bug solved with new version, don't need to adapt
+3) (removed)
 
 4) obtain the files as described in todo.txt in the following folders:
     dist\PyQt5\Qt\bin
