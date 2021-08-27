@@ -11,7 +11,9 @@ on Linux you can run Python scripts directly.
 ********************************************************************************************************
 
 1) install eric6 IDE and all required dependencies (like PyQt5), check the file requirements.txt
-    (configure your environment as required)
+    (configure your environment as required: pip install -r requirements.txt)
+    (pipreqs may not catch all dependencies, thus you may need to do also: pip install playsound
+    sudo apt-get install python3-tk, then test: python3 -c "import tkinter")
     
 2) configure config.ini as required
     IMPORTANT: Note that the default values are just an example and need to be adapted to your specific conditions.
