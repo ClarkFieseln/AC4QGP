@@ -1,10 +1,10 @@
 
-Instructions to install AC4QGP (2021.02.27): 
+Instructions to install AC4QGP (2021.08.27): 
 
 ********************************************************************************************************
 WARNING:
 step 7) for the generation of an executable file for windows 10 (of type .exe) is not yet finished,
-but it will be provided soon (tested with Python 3.7 and 3.9).
+but it will be provided soon (tested with Python 3.7, 3.8 and 3.9).
 
 NOTE: 
 on Linux you can run Python scripts directly.
