@@ -1340,8 +1340,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 tkinter.messagebox.showerror(title="ERROR", message="Make sure emote is installed on your system.\n"\
                 "Alternatively, you can copy&paste the icons from your editor (e.g. xed in Linux Mint).\n\
                 In that case you may need to use the font 'Noto color emoji'.")
-                # NOTE: call root.mainloop() to enable the program to respond to events. 
-                root.update()
+            # NOTE: call root.mainloop() to enable the program to respond to events. 
+            root.update()
             p1.terminate()
             p1.kill()
     
