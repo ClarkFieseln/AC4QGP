@@ -18,7 +18,7 @@ on Linux you can run Python scripts directly.
 2) configure config.ini as required
     IMPORTANT: Note that the default values are just an example and need to be adapted to your specific conditions.
  
-3) (removed)
+3) for Linux, install emote as described here: https://snapcraft.io/emote
 
 4) obtain the files as described in todo.txt in the following folders:
     dist\PyQt5\Qt\bin
