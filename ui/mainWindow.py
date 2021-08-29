@@ -35,6 +35,14 @@ if platform.system() != 'Windows':
 root = tkinter.Tk()
 root.withdraw()
 
+# different relative paths depending if we run the script or the executable file
+runningScript = os.path.basename(__file__)
+if (runningScript=="mainWindow.py"): 
+    # .py script
+    # go to current file path
+    os.chdir(os.path.dirname(__file__))
+    # now go one level up so configuration.PATH_PREFIX is correct again (we are now in folder /ui)
+    os.chdir("../")
 
 # defines for chat state machine
 CHAT_STATE_OFF = "off"
