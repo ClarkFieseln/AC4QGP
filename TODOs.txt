@@ -1,4 +1,4 @@
-2021.02.27, 13:14hs:
+2023.06.26, 19:25hs:
 ####################
 
 # make generation of .exe work:
@@ -109,6 +109,8 @@
 
 # in settings -> audio devices
 # refresh / update button to see new / removed audio devices
+
+# TEST: over Tor and Onion to Onion services
 
 
 
